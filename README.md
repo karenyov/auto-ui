@@ -1,11 +1,7 @@
 # React + TypeScript + Vite :wrench: :hammer:
 
-<div align="center">
-  <p>
-    [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/) 
-    ![Node Current](https://img.shields.io/node/v/typescript)
-  </p>
-</div>
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/) 
+![Node Current](https://img.shields.io/node/v/typescript)
 
 ## Requeriments
 
