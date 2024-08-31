@@ -3,6 +3,64 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 ![Node Current](https://img.shields.io/node/v/typescript)
 
+<!-- Sections -->
+
+## :link: Sections
+
+<!--ts-->
+
+- [Folder Structure](#folder-structure)
+- [Requeriments](#requirements)
+- [Installation](#installation)
+- [Feedback](#feedback)
+- [Authors](#authors)
+- [Contributors](#contributors)
+- [License](#license)
+
+<!--te-->
+
+<!-- end Sections -->
+
+<!-- Folder Structure -->
+
+## Folder Structure
+
+```sh
+.
+├── .vscode
+│   └── settings.json
+├── node_modules
+├── public
+├── src
+│   ├── assets
+│   |   └── images
+│   ├── components
+│   ├── hooks
+│   ├── layouts
+│   ├── hooks
+│   ├── pages
+│   ├── routes
+│   ├── routes
+│   ├── styles
+│   ├── services
+│   └── utils
+├── .all-contributorsrc
+├── .gitignore
+├── .prettierrc.js
+├── eslint.config.js
+├── index.html
+├── LICENSE
+├── README.md
+├── package.json
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── tsconfig.node.json
+└── vite.config.ts
+```
+
+<!-- end Folder Structure -->
+
 <!-- Requeriments -->
 
 ## Requeriments
