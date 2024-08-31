@@ -1,28 +1,29 @@
 {
-  "files": [
-    "README.md"
-  ],
+  "projectName": "aut-UI",
+  "projectOwner": "karenyov",
+  "repoType": "github",
+  "files": ["README.md"],
   "imageSize": 100,
-  "commit": false,
-  "commitType": "docs",
-  "commitConvention": "angular",
+  "contributorsPerLine": 7,
+  "contributorsSortAlphabetically": false,
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square)](#contributors)",
+  "contributorTemplate": "<a href=\"<%= contributor.profile %>\"><img src=\"<%= contributor.avatar_url %>\" width=\"<%= options.imageSize %>px;\" alt=\"\"/><br /><sub><b><%= contributor.name %></b></sub></a>",
+  "types": {
+    "custom": {
+      "symbol": "🔭",
+      "description": "A custom contribution type.",
+      "link": "[<%= symbol %>](<%= url %> \"<%= description %>\"),"
+    }
+  },
+  "skipCi": true,
   "contributors": [
     {
       "login": "karenyov",
       "name": "Karen Vicente",
       "avatar_url": "https://avatars.githubusercontent.com/u/11029857?v=4",
       "profile": "https://github.com/karenyov",
-      "contributions": [
-        "infra",
-        "test",
-        "code"
-      ]
+      "contributions": ["infra", "test", "code"]
     }
   ],
-  "contributorsPerLine": 7,
-  "skipCi": true,
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "projectName": "auto-ui",
-  "projectOwner": "karenyov"
+  "repoHost": "https://github.com"
 }
