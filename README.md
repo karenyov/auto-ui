@@ -97,9 +97,10 @@ npm run dev
 
 If you have any feedback, please reach out to us at karenyasmin37@gmail.com
 
-<!-- end Authors -->
 
-<!-- Feedback -->
+<!-- end Feedback -->
+
+<!-- Authors -->
 
 ## Authors
 

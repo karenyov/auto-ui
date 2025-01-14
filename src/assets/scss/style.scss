@@ -1,0 +1,17 @@
+// Import all of Bootstrap's CSS
+@import "bootstrap/scss/bootstrap";
+
+
+@import "variables";
+
+@import './navbar';
+
+@import './layouts';
+
+@import './sidebar';
+
+@import './components/dropdown';
+
+@import './components/icons';
+
+@import './components/switch';

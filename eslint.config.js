@@ -1,8 +1,6 @@
 import globals from 'globals';
 import pluginJs from '@eslint/js';
 import pluginReact from 'eslint-plugin-react';
-import pluginReactHooks from 'eslint-plugin-react-hooks';
-import { ESLint } from 'eslint';
 
 export default [
   {
