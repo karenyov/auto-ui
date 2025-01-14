@@ -1,5 +1,4 @@
 import { IconBaseProps, IconType } from "react-icons";
-import useTheme from "../../hooks/useTheme";
 
 interface Props extends IconBaseProps {
   IconComponent: IconType;

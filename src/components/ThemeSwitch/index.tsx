@@ -6,11 +6,15 @@ import useTheme from "../../hooks/useTheme";
 export function ThemeSwitch() {
   const { theme, toggleTheme } = useTheme();
 
+  const handleChange = () => {
+    toggleTheme();
+  };
+
   return (
     <>
       <Switch
         label={<Icon IconComponent={FiMoon} size={15} />}
-        onClick={toggleTheme}
+        onChange={handleChange}
         checked={theme === "dark"}
       />
     </>

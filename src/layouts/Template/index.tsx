@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import { Navbar } from "../Navbar";
 import { SideNavbar } from "../SideNavbar";
 
@@ -11,9 +12,7 @@ export function Template() {
 
         <div id="layoutSidenav_content">
           <main>
-            <div className="container-fluid px-4">
-              <h1 className="mt-4">Dashboard</h1>
-            </div>
+            <Outlet />
           </main>
           <footer className="py-4 mt-auto">
             <div className="container-fluid px-4">

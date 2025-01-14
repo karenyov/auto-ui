@@ -1,6 +1,5 @@
 // Import all of Bootstrap's CSS
-@import "bootstrap/scss/bootstrap";
-
+@import 'bootstrap/scss/bootstrap.scss';
 
 @import "variables";
 
@@ -15,3 +14,5 @@
 @import './components/icons';
 
 @import './components/switch';
+
+@import './components/utils';
