@@ -7,7 +7,7 @@ interface Props extends IconBaseProps {
 export function Icon({ IconComponent, color = "white", size = 18 }: Props) {
   return (
     <div style={{ display: "inline-block" }}>
-      <IconComponent color={color} size={size} />
+      <IconComponent color={color} size={size} className="icon-default" />
     </div>
   );
 }

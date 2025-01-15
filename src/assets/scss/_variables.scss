@@ -396,6 +396,15 @@ $gray-lightest: #e6e9ed;
   --dropdown-link-hover-bg: #{$gray-lightest};
   --dropdown-header-color: #{$border-color};
   --dropdown-menu-box-shadow: #{$dropdown-menu-box-shadow};
+
+  --input-bg: #{$white};
+  --input-border-radius: #{$gray-lightest};
+  --input-border-color: #{$gray-lightest};
+  --input-placeholder-color: #{$text-muted};
+
+  --card-bg: #{$white};
+  --card-description-color: #{$input-bg};
+  --card-title-color: #{$content-bg};
 }
 
 // Tema escuro
@@ -412,5 +421,13 @@ $gray-lightest: #e6e9ed;
   --dropdown-link-hover-bg: #{$dropdown-link-hover-bg};
   --dropdown-header-color: #{$dropdown-header-color};
   --dropdown-menu-box-shadow: #{$dropdown-menu-box-shadow};
-}
 
+  --input-bg: #{$input-bg};
+  --input-border-radius: #{$input-border-radius};
+  --input-border-color: #{$input-border-color};
+  --input-placeholder-color: #{$gray-lightest};
+
+  --card-bg: #{$card-bg};
+  --card-description-color: #{$card-description-color};
+  --card-title-color: #{$card-title-color};
+}
