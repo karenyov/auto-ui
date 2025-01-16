@@ -11,7 +11,7 @@ export function Login() {
               <div className="card-header">
                 <h3 className="text-center font-weight-light my-4">Login</h3>
               </div>
-              <div className="card-body">
+              <div className="card-body p-5">
                 <form>
                   <div className="form-floating mb-3">
                     <Input type="email" />
@@ -34,17 +34,21 @@ export function Login() {
                   </div>
                   <div className="d-flex align-items-center justify-content-between mt-4 mb-0">
                     <a className="small" href="password.html">
-                      Forgot Password?
+                      Esqueceu a senha?
                     </a>
-                    <a className="btn btn-primary" href="index.html">
+                  </div>
+                  <div className="d-grid gap-2 mt-2">
+                    <button className="btn btn-primary" type="button">
                       Login
-                    </a>
+                    </button>
                   </div>
                 </form>
               </div>
               <div className="card-footer text-center py-3">
                 <div className="small">
-                  <a href="register.html">Need an account? Sign up!</a>
+                  <p className="sign-up">
+                    Não tem uma conta?<a href="#"> Registre-se</a>
+                  </p>
                 </div>
               </div>
             </div>
