@@ -1,7 +1,7 @@
 import { FiMoon } from "react-icons/fi";
 import { Icon } from "../Icon";
 import { Switch } from "../Switch";
-import useTheme from "../../hooks/useTheme";
+import { useTheme } from "../../contexts/themeContext";
 
 export function ThemeSwitch() {
   const { theme, toggleTheme } = useTheme();

@@ -2,8 +2,9 @@ import { RouteObject, createBrowserRouter } from "react-router-dom";
 import { Template } from "../layouts/Template";
 import { Dashboard } from "../pages/Dashboard";
 import { Login } from "../pages/auth/Login";
-import { FiTable } from "react-icons/fi";
+import { FiTable, FiTruck } from "react-icons/fi";
 import { IconType } from "react-icons";
+import { Vehicle } from "../pages/Vehicle";
 
 type Props = {
   title: string;
@@ -24,6 +25,12 @@ export const routes: Props[] = [
         element: <Dashboard />,
         icon: FiTable,
         title: "Dashboard",
+      },
+      {
+        path: "vehicle",
+        element: <Vehicle />,
+        icon: FiTruck,
+        title: "Veículos",
       },
       // {
       //   path: "home",

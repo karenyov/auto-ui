@@ -1,4 +1,5 @@
-import { Icon } from "../../components/Icon";
+import { NavLink } from "react-router-dom";
+import { IconList } from "../../components/IconList";
 import { routes } from "../../routes";
 
 export function SideNavbar() {
@@ -17,21 +18,26 @@ export function SideNavbar() {
                 <div key={index}>
                   <div className="sb-sidenav-menu-heading">{route.title}</div>
 
-                  {route.children?.map((childRoute, childIndex) => (
-                    <a
-                      key={childIndex}
-                      className="nav-link"
-                      href={childRoute.path || "/"}
+                  {route.children?.map((childRoute) => (
+                    <NavLink
+                      to={childRoute.path || "/"}
+                      end
+                      className={({ isActive }) =>
+                        `nav-link ${isActive ? "active" : ""}`
+                      }
                     >
                       <div className="sb-nav-link-icon">
                         {childRoute.icon ? (
-                          <Icon IconComponent={childRoute.icon} />
+                          <IconList
+                            IconComponent={childRoute.icon}
+                            color="black"
+                          />
                         ) : (
                           <i className="fas fa-tachometer-alt"></i>
                         )}
                       </div>
                       {childRoute.title}
-                    </a>
+                    </NavLink>
                   ))}
                 </div>
               ))}

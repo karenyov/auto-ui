@@ -5,8 +5,15 @@ import { FiUser } from "react-icons/fi";
 import { Icon } from "../../components/Icon";
 import { IconList } from "../../components/IconList";
 import { ThemeSwitch } from "../../components/ThemeSwitch";
+import useSidebarToggle from "../../hooks/useSidebarToggle";
 
 export function Navbar() {
+  const { toggle } = useSidebarToggle();
+
+  const handleToggleSidebar = () => {
+    toggle();
+  };
+
   return (
     <>
       <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -16,6 +23,7 @@ export function Navbar() {
         <button
           className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
           id="sidebarToggle"
+          onClick={handleToggleSidebar}
         >
           <Icon IconComponent={FiMenu} />
         </button>
