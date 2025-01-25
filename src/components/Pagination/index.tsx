@@ -1,22 +1,24 @@
 import DataTable, { TableProps } from "react-data-table-component";
-import { Vehicle } from "../../models/Vehicle";
 import { useTheme } from "../../contexts/themeContext";
 
-type Props = {
+type Props<T> = {
   title: string;
   page: number;
   size: number;
   total: number;
+  onClickRow?: (row: T) => void;
   onChangePagination: (pagination: { page: number; size: number }) => void;
-} & TableProps<Vehicle>;
+} & TableProps<T>;
 
-export function Pagination({
+export function Pagination<T>({
   size,
   onChangePagination,
   columns,
   data,
   title,
-}: Props) {
+  onClickRow,
+  ...rest
+}: Props<T>) {
   const { theme } = useTheme();
 
   const handleChangePage = (newPage: number) => {
@@ -61,12 +63,22 @@ export function Pagination({
         },
       },
     },
+    noData: {
+      style: {
+        color: theme === "dark" ? "#FFF" : "#000",
+        backgroundColor: theme === "dark" ? "#191c24" : "#FFF",
+      },
+    },
     pagination: {
       style: {
         backgroundColor: theme === "dark" ? "#191c24" : "#FFF",
         color: theme === "dark" ? "#FFF" : "#000",
       },
     },
+  };
+  const paginationOptions = {
+    rowsPerPageText: "Página:",
+    rangeSeparatorText: "de",
   };
 
   return (
@@ -82,6 +94,9 @@ export function Pagination({
       paginationPerPage={size}
       className="pagination-custom"
       customStyles={tableCustomStyles}
+      onRowClicked={onClickRow}
+      paginationComponentOptions={paginationOptions}
+      {...rest}
     />
   );
 }

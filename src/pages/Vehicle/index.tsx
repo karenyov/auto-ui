@@ -1,27 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetVehicles } from "./hooks/useGetVehicles";
 import { Vehicle as VehicleModel } from "../../models/Vehicle";
 import { PageProps } from "../../utils/types/PageProps";
 import { Spinner } from "../../components/Spinner";
 import { Pagination } from "../../components/Pagination";
 import { formatCurrency } from "../../utils/format/formatCurrency";
+import { Outlet, useNavigate } from "react-router-dom";
 
 export function Vehicle() {
-  const [pagination, setPagination] = useState<PageProps>({
-    page: 0,
-    size: 10,
-  });
-
-  const { data, isLoading } = useGetVehicles(pagination);
-
-  const handleChangePagination = (newPagination: {
-    page: number;
-    size: number;
-  }) => {
-    setPagination(newPagination);
-    // mutate(newPagination);
-  };
-
   const columns = [
     {
       name: "ID",
@@ -50,29 +36,63 @@ export function Vehicle() {
     },
   ];
 
-  if (isLoading) {
-    return <Spinner />;
-  }
+  const isDetailsPage = location?.pathname?.includes("/vehicle/");
+
+  const navigate = useNavigate();
+
+  const [pagination, setPagination] = useState<PageProps>({
+    page: 0,
+    size: 10,
+  });
+
+  const { data, isLoading, refetch } = useGetVehicles(pagination);
+
+  const handleChangePagination = (newPagination: {
+    page: number;
+    size: number;
+  }) => {
+    setPagination(newPagination);
+    // mutate(newPagination);
+  };
+
+  const handleRowClick = (row: VehicleModel) => {
+    navigate(`/vehicle/${row.idVeiculo}`);
+  };
+
+  useEffect(() => {
+    if (!isDetailsPage) {
+      refetch();
+    }
+  }, [isDetailsPage]);
 
   return (
     <div className="container-fluid px-4">
-      <h1 className="mt-4 mb-4">Veículos</h1>
+      <h4 className="mt-4 mb-4">Veículos</h4>
 
-      <div className="row">
-        <div className="col-md-12">
-          <div className="card">
-            <Pagination
-              title={"Veículos"}
-              page={pagination.page + 1}
-              size={pagination.size}
-              total={data?.length || 0}
-              onChangePagination={handleChangePagination}
-              columns={columns}
-              data={data || []}
-            />
+      {isDetailsPage && <Outlet />}
+
+      {!isDetailsPage && (
+        <div className="row">
+          <div className="col-md-12">
+            <div className="card">
+              {isLoading ? (
+                <Spinner />
+              ) : (
+                <Pagination
+                  title={"Veículos"}
+                  page={pagination.page + 1}
+                  size={pagination.size}
+                  total={data?.length || 0}
+                  onChangePagination={handleChangePagination}
+                  columns={columns}
+                  data={Array.isArray(data) ? data : []}
+                  onClickRow={handleRowClick}
+                />
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

@@ -3,6 +3,34 @@ import { http, HttpResponse } from 'msw';
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const veiculosHandlers = [
+  http.get(`${API_BASE_URL}/vehicle?vehicleId=`, () => {
+    const data = `{
+        "idVeiculo": 4,
+        "placa": "DEF4321",
+        "marca": "CHEVROLET",
+        "modelo": "Onix",
+        "anoFabricacao": 2022,
+        "anoModelo": 2023,
+        "cor": "Branco",
+        "precoVenda": 45000.00,
+        "precoCompra": 42000.00,
+        "tabelaFipe": 43000.00,
+        "quilometragem": 8000,
+        "categoria": "Hatch",
+        "nomeFornecedor": "CHEVROLET DO BRASIL",
+        "telefoneFornecedor": "3344556677",
+        "opcionais": "Ar condicionado, Direção elétrica",
+        "valorIpva": 1200.00,
+        "vencimentoIpva": "2024-09-30",
+        "valorDevido": 300.00,
+        "valorParcela": 1200.00,
+        "financiado": false,
+        "observacao": "Financiamento quitado"
+    }`;
+
+    return HttpResponse.json(JSON.parse(data), { status: 200 });
+  }),
+
   http.get(`${API_BASE_URL}/vehicle/all`, () => {
     const data = `{
             "_embedded": {

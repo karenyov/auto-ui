@@ -18,12 +18,13 @@ export function SideNavbar() {
                 <div key={index}>
                   <div className="sb-sidenav-menu-heading">{route.title}</div>
 
-                  {route.children?.map((childRoute) => (
+                  {route.children?.map((childRoute, index) => (
                     <NavLink
+                      key={index}
                       to={childRoute.path || "/"}
                       end
                       className={({ isActive }) =>
-                        `nav-link ${isActive ? "active" : ""}`
+                        `nav-link link ${isActive ? "active" : ""}`
                       }
                     >
                       <div className="sb-nav-link-icon">
@@ -43,6 +44,7 @@ export function SideNavbar() {
               ))}
             </div>
           </div>
+          <hr />
           <div className="sb-sidenav-footer">
             <div className="small">Logado como:</div>
             João

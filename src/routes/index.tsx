@@ -2,21 +2,24 @@ import { RouteObject, createBrowserRouter } from "react-router-dom";
 import { Template } from "../layouts/Template";
 import { Dashboard } from "../pages/Dashboard";
 import { Login } from "../pages/auth/Login";
-import { FiTable, FiTruck } from "react-icons/fi";
+import { FiBox, FiFileText, FiTable, FiTruck, FiUsers } from "react-icons/fi";
 import { IconType } from "react-icons";
 import { Vehicle } from "../pages/Vehicle";
+import { VehicleDetails } from "../pages/Vehicle/details";
+import { Customer } from "../pages/Customer";
 
 type Props = {
-  title: string;
+  title?: string;
   icon?: IconType;
   children?: Props[];
   isAuth?: boolean;
+  hiddenMenu?: boolean;
 } & RouteObject;
 
 export const routes: Props[] = [
   {
     path: "/",
-    element: <Template />, // Layout principal
+    element: <Template />, // aqui tenho o <Outlet />
     title: "Core",
     isAuth: true,
     children: [
@@ -31,6 +34,31 @@ export const routes: Props[] = [
         element: <Vehicle />,
         icon: FiTruck,
         title: "Veículos",
+        children: [
+          {
+            path: ":id",
+            element: <VehicleDetails />,
+            hiddenMenu: true,
+          },
+        ],
+      },
+      {
+        path: "customer",
+        element: <Customer />,
+        icon: FiUsers,
+        title: "Clientes",
+      },
+      {
+        path: "report",
+        element: <></>,
+        icon: FiFileText,
+        title: "Relatórios",
+      },
+      {
+        path: "sales",
+        element: <></>,
+        icon: FiBox,
+        title: "Vendas",
       },
       // {
       //   path: "home",

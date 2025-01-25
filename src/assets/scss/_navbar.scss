@@ -13,7 +13,9 @@
 .nav .nav-link {
   border-radius: 0px 100px 100px 0px;
   transition: background-color 0.3s ease;
-  
+  color: $text-muted !important;
+  font-size: 0.9375rem;
+
   &.active,
   &:focus,
   &:hover {
