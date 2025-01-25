@@ -4,6 +4,7 @@ import { Spinner } from "../../components/Spinner";
 import { formatCurrency } from "../../utils/format/formatCurrency";
 import { formatDate } from "../../utils/format/formatDate";
 import { formatNumber } from "../../utils/format/formatNumber";
+import { FiEdit2 } from "react-icons/fi";
 
 export function VehicleDetails() {
   const { id } = useParams();
@@ -23,8 +24,15 @@ export function VehicleDetails() {
       <div className="col-md-12">
         <div className="card">
           <div className="card-body">
-            <h6 className="card-title">Informaçoes Gerais </h6>
-
+            <div className="d-flex justify-content-between align-items-center">
+              <h6 className="card-title">Informaçoes Gerais</h6>
+              <button
+                type="button"
+                className="btn btn-primary btn-sm rounded-pill"
+              >
+                <FiEdit2 />
+              </button>
+            </div>
             <div className="row mt-3">
               <div className="col-md-6">
                 <p className="card-text m-0">

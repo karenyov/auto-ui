@@ -7,6 +7,7 @@ import { IconType } from "react-icons";
 import { Vehicle } from "../pages/Vehicle";
 import { VehicleDetails } from "../pages/Vehicle/details";
 import { Customer } from "../pages/Customer";
+import { Sale } from "../pages/Sale";
 
 type Props = {
   title?: string;
@@ -49,14 +50,8 @@ export const routes: Props[] = [
         title: "Clientes",
       },
       {
-        path: "report",
-        element: <></>,
-        icon: FiFileText,
-        title: "Relatórios",
-      },
-      {
         path: "sales",
-        element: <></>,
+        element: <Sale />,
         icon: FiBox,
         title: "Vendas",
       },

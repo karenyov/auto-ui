@@ -1,36 +1,38 @@
 import { useState } from "react";
 import { Pagination } from "../../components/Pagination";
 import { Spinner } from "../../components/Spinner";
+import { useGetSales } from "./hooks/useGetSales";
 import { PageProps } from "../../utils/types/PageProps";
-import { useGetCustomers } from "./hooks/useGetCustomers";
-import { Customer as CustomerModel } from "../../models/Customer";
+import { Sale as SaleModel } from "../../models/Sale";
+import { formatDate } from "../../utils/format/formatDate";
+import { formatCurrency } from "../../utils/format/formatCurrency";
 import { TitlePage } from "../../components/TitlePage";
 
-export function Customer() {
+export function Sale() {
   const columns = [
     {
       name: "ID",
-      selector: (row: CustomerModel) => row.clienteId,
+      selector: (row: SaleModel) => row.idCompra,
       sortable: true,
     },
     {
-      name: "Nome",
-      selector: (row: CustomerModel) => row.nome,
+      name: "Cliente",
+      selector: (row: SaleModel) => row.cliente.nome,
       sortable: true,
     },
     {
-      name: "E-mail",
-      selector: (row: CustomerModel) => row.email,
+      name: "Data Compra",
+      selector: (row: SaleModel) => formatDate(row.dataCompra),
       sortable: true,
     },
     {
-      name: "UF",
-      selector: (row: CustomerModel) => row.estado,
+      name: "Valor",
+      selector: (row: SaleModel) => formatCurrency(row.valorCompra),
       sortable: true,
     },
   ];
 
-  const { data, isLoading, refetch } = useGetCustomers();
+  const { data, isLoading, refetch } = useGetSales();
 
   const [pagination, setPagination] = useState<PageProps>({
     page: 0,
@@ -45,21 +47,20 @@ export function Customer() {
     // mutate(newPagination);
   };
 
-  const handleRowClick = (row: CustomerModel) => {
+  const handleRowClick = (row: SaleModel) => {
     // navigate(`/vehicle/${row.idVeiculo}`);
   };
 
   return (
     <div className="container-fluid px-4">
       <TitlePage
-        title={"Clientes"}
+        title={"Vendas"}
         buttons={
           <button type="button" className="btn btn-primary btn-sm rounded-pill">
-            incluir cliente
+            incluir venda
           </button>
         }
       />
-
       <div className="row">
         <div className="col-md-12">
           <div className="card">
@@ -67,7 +68,7 @@ export function Customer() {
               <Spinner />
             ) : (
               <Pagination
-                title={"Clientes"}
+                title={"Vendas"}
                 page={pagination.page + 1}
                 size={pagination.size}
                 total={data?.length || 0}

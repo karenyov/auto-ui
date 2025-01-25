@@ -2,7 +2,7 @@ import DataTable, { TableProps } from "react-data-table-component";
 import { useTheme } from "../../contexts/themeContext";
 
 type Props<T> = {
-  title: string;
+  title: string | React.ReactNode;
   page: number;
   size: number;
   total: number;
@@ -96,6 +96,7 @@ export function Pagination<T>({
       customStyles={tableCustomStyles}
       onRowClicked={onClickRow}
       paginationComponentOptions={paginationOptions}
+      noDataComponent={"Nenhum registro encontrado"}
       {...rest}
     />
   );

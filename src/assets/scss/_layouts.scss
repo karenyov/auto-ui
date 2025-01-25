@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body {
+  font-family: $type1;
+}
+
 /* Barra de navegação fixa no topo */
 #sb-nav-fixed .navbar {
   position: fixed;

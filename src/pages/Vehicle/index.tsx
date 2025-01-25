@@ -6,6 +6,7 @@ import { Spinner } from "../../components/Spinner";
 import { Pagination } from "../../components/Pagination";
 import { formatCurrency } from "../../utils/format/formatCurrency";
 import { Outlet, useNavigate } from "react-router-dom";
+import { TitlePage } from "../../components/TitlePage";
 
 export function Vehicle() {
   const columns = [
@@ -67,7 +68,14 @@ export function Vehicle() {
 
   return (
     <div className="container-fluid px-4">
-      <h4 className="mt-4 mb-4">Veículos</h4>
+      <TitlePage
+        title={"Veículos"}
+        buttons={
+          <button type="button" className="btn btn-primary btn-sm rounded-pill">
+            incluir veículo
+          </button>
+        }
+      />
 
       {isDetailsPage && <Outlet />}
 
