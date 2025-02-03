@@ -8,6 +8,7 @@ import { Vehicle } from "../pages/Vehicle";
 import { VehicleDetails } from "../pages/Vehicle/details";
 import { Customer } from "../pages/Customer";
 import { Sale } from "../pages/Sale";
+import { VehicleInsert } from "../pages/Vehicle/VehicleInsert";
 
 type Props = {
   title?: string;
@@ -38,6 +39,16 @@ export const routes: Props[] = [
         children: [
           {
             path: ":id",
+            element: <VehicleDetails />,
+            hiddenMenu: true,
+          },
+          {
+            path: "form",
+            element: <VehicleInsert />,
+            hiddenMenu: true,
+          },
+          {
+            path: "form/:id",
             element: <VehicleDetails />,
             hiddenMenu: true,
           },

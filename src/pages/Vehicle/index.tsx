@@ -60,6 +60,10 @@ export function Vehicle() {
     navigate(`/vehicle/${row.idVeiculo}`);
   };
 
+  const handleInsertVehicle = () => {
+    navigate(`/vehicle/form`);
+  };
+
   useEffect(() => {
     if (!isDetailsPage) {
       refetch();
@@ -71,7 +75,11 @@ export function Vehicle() {
       <TitlePage
         title={"Veículos"}
         buttons={
-          <button type="button" className="btn btn-primary btn-sm rounded-pill">
+          <button
+            type="button"
+            className="btn btn-primary btn-sm rounded-pill"
+            onClick={handleInsertVehicle}
+          >
             incluir veículo
           </button>
         }
