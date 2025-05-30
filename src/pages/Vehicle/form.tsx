@@ -5,7 +5,6 @@ import { VehicleTypes } from "./types";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { NumericFormat, PatternFormat } from "react-number-format";
-import { formatRealToNumber } from "../../utils/format/formatRealToNumber";
 
 export function VehicleForm({
   initialData = {},
